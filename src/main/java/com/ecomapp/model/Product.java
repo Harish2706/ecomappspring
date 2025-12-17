@@ -1,17 +1,14 @@
 package com.ecomapp.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 public class Product {
+
 
     @Id
     private int id;
@@ -34,8 +31,38 @@ public class Product {
 
     private int quantity;
 
+    private String imagename;
+    private String imagetype;
+    @Lob
+    private byte[] imagedata;
+
     // No-args constructor (REQUIRED by JPA)
     public Product() {
+    }
+
+
+    public String getImagename() {
+        return imagename;
+    }
+
+    public void setImagename(String imagename) {
+        this.imagename = imagename;
+    }
+
+    public String getImagetype() {
+        return imagetype;
+    }
+
+    public void setImagetype(String imagetype) {
+        this.imagetype = imagetype;
+    }
+
+    public byte[] getImagedata() {
+        return imagedata;
+    }
+
+    public void setImagedata(byte[] imagedata) {
+        this.imagedata = imagedata;
     }
 
     public Product(int id, String name, String desc, String brand,

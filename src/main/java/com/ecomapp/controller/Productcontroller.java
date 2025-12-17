@@ -5,6 +5,7 @@ import com.ecomapp.service.Productservice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,5 +36,7 @@ public class Productcontroller {
         if(product!=null)return new ResponseEntity<>(product,HttpStatus.OK);
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+
 
 }
