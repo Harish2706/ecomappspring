@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
 @Service
 public class Productservice {
     @Autowired
@@ -16,4 +18,7 @@ public class Productservice {
         return list;
     }
 
+    public Product getproductbyid(int id) {
+        return repo.findById(id).get();
+    }
 }
