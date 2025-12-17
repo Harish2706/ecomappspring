@@ -26,11 +26,14 @@ public class Productcontroller {
     }
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getallproducts(){
+
       return new ResponseEntity<>(service.getallproducts(), HttpStatus.OK);
     }
     @GetMapping("/product/{id}")
-    public Product ids(@PathVariable int  id){
-        return service.getproductbyid(id);
+    public ResponseEntity<Product>ids(@PathVariable int  id){
+         Product product = service.getproductbyid(id);
+        if(product!=null)return new ResponseEntity<>(product,HttpStatus.OK);
+        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
